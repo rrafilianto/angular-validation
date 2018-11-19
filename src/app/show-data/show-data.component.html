@@ -1,0 +1,60 @@
+<div *ngIf="!showData">
+  <div class="card" style="width: 40rem">
+    <div class="card-body">
+      <div class="container">
+        
+        <div class="form-group">
+          <label>Id</label>
+          <input type="text" class="form-control" (keyup)="onKeyId($event)" />
+        </div>
+
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" (keyup)="onKeyName($event)" />
+        </div>
+        
+        <div class="form-group">
+          <button type="submit" class="btn font-weight-bold text-white" (click)="onClick()">Submit</button>
+        </div>
+
+        <div class="form-group" *ngFor="let getForm of getForm">
+          <p>Id : {{getForm.id}}</p>
+          <p>Name : {{getForm.title}}</p>
+        </div>
+
+        <div class="form-group" *ngIf="this.form">
+          <p *ngIf="this.form.id">Id : {{form.id}}</p>
+          <p *ngIf="this.form.title">Name : {{form.title}}</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px">
+    <div class="card" style="width: 40rem">
+      <div class="card-body">
+        <div class="container">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of viewData">
+                <td>{{data.name}}</td>
+                <td>{{data.value}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+</div>
